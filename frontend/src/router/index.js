@@ -4,6 +4,7 @@ import HomePage from '../views/HomePage.vue'
 import LoginPage from '../views/LoginPage.vue'
 import CopyDetailsPage from '../views/CopyDetailsPage.vue'
 import AddCopyPage from '../views/AddCopyPage.vue'
+import UserPage from '../views/UserPage.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,12 @@ export default new Router({
       path: '/add',
       name: 'add',
       component: AddCopyPage,
+    },
+    {
+      path: '/user/:id',
+      name: 'user',
+      component: UserPage,
+      props: true,
     },
   ],
 });

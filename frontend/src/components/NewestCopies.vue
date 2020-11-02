@@ -15,7 +15,9 @@
                 <router-link :to="{ path: `/copy/${copy.id}`}">
                     <h6 class="card-title">{{copy.title}}</h6>
                 </router-link>
-                <p class="card-text">{{copy.user.username}}</p>
+                <router-link :to="{ path: `/user/${copy.user.id}`}">
+                    <p class="card-text">{{copy.user.username}}</p>
+                </router-link>
                 <p class="card-text-bottom"><small class="text-muted">{{copy.date | formatDate}}</small></p>
             </div>
         </div>
@@ -28,12 +30,13 @@
     height: 250px;
     object-fit: cover;
 }
-.card-text-bottom {
-    position: absolute;
-    bottom: 0;
-}
 .card-title {
     color: #6c757d;
+    text-decoration: none;
+}
+.card-text {
+    color: #6c757d;
+    text-decoration: none;
 }
 </style>
 

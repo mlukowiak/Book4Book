@@ -1,16 +1,18 @@
 <template>
 <div class="row">​
     Test
-    {{copyDetails.title}}
+    {{userDetails.username}}
 </div>   
 </template>
+
+
 
 <script>
 
 import axios from 'axios';
 
 export default {
-  name: 'CopyDetails',
+  name: 'UserDetails',
   components: {
   },
   props: {
@@ -21,13 +23,13 @@ export default {
   },
 data() {
       return {
-          copyDetails: Object,
+          userDetails: Object,
       }
       },
   methods: {
       getDetails() {
-          axios.get("http://127.0.0.1:8000/api/v1/copies/" + this.id)
-          .then(res => (this.copyDetails = res.data))
+          axios.get("http://127.0.0.1:8000/api/v1/users/" + this.id)
+          .then(res => (this.userDetails = res.data))
           .catch(err => console.log(err));
       }
       },
