@@ -8,7 +8,9 @@
     </div>
     <div class="card-deck">
         <div class="card" v-bind:key="copy.id" v-for="copy in copies.slice(0, 5).reverse()">
-            <img :src="copy.photo" class="card-img-top"/>
+             <router-link :to="{ path: `/copy/${copy.id}`}">
+             <img :src="copy.photo" class="card-img-top"/>
+             </router-link>
             <div class="card-body">
                 <router-link :to="{ path: `/copy/${copy.id}`}">
                     <h6 class="card-title">{{copy.title}}</h6>
@@ -30,6 +32,9 @@
     position: absolute;
     bottom: 0;
 }
+.card-title {
+    color: #6c757d;
+}
 </style>
 
 <script>
@@ -37,7 +42,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'Home',
+  name: 'NewestCopies',
   components: {
       
   },

@@ -6,7 +6,7 @@ from rest_framework.authtoken.models import Token
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = ('id', 'title','author', 'series','publishingHouse','publishYear', 'copies_number')
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
