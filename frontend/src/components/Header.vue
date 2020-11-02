@@ -2,9 +2,12 @@
 <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-4 pt-1">
-            <h5 class="my-0 mr-md-auto font-weight-normal"> <router-link style="text-decoration: none; color: inherit"  :to="{ path: `/`}">Book4Book</router-link></h5>
+            <h5 class="my-0 mr-md-auto font-weight-normal"><router-link style="text-decoration: none; color: inherit"  :to="{ path: `/`}">Book4Book</router-link></h5>
         </div>
-        <div class="col-4 d-flex justify-content-end align-items-center">
+        <div v-if="token==null" class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-sm btn-outline-secondary"><router-link style="text-decoration: none; color: inherit" :to="{ path: `login`}">Zaloguj się</router-link></a>
+        </div>
+        <div v-else class="col-4 d-flex justify-content-end align-items-center">
             <a class="btn btn-sm btn-outline-secondary"><router-link style="text-decoration: none; color: inherit" :to="{ path: `add`}">Wystaw książkę</router-link></a>
         </div>
     </div>
@@ -24,6 +27,11 @@ router-link{
 
 export default {
   name: 'Header',
+  data(){
+      return{
+          token: localStorage.getItem('user-token') || null,
+      }
+  },
   components: {
   }
 }
